@@ -37,7 +37,8 @@ export default function Dashboard({ user }) {
   }, []);
 
   // Compute metrics
-  const completedInterviews = history.filter(item => item.status === 'completed');
+  const validHistory = Array.isArray(history) ? history : [];
+  const completedInterviews = validHistory.filter(item => item.status === 'completed');
   const totalCompleted = completedInterviews.length;
   
   const averageScore = totalCompleted > 0 
@@ -207,7 +208,7 @@ export default function Dashboard({ user }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
         <div>
           <h1 style={{ fontSize: '2.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            Welcome Back, {user?.name.split(' ')[0]} 👋
+            Welcome Back, {(user?.name || 'Candidate').split(' ')[0]} 👋
           </h1>
           <p style={{ color: 'hsl(var(--text-muted))', marginTop: '0.25rem' }}>
             Review your mock history and start polishing your skills.
@@ -365,7 +366,7 @@ export default function Dashboard({ user }) {
         <h3 style={{ fontSize: '1.25rem', marginBottom: '1.25rem' }}>Recent Mock Sessions</h3>
         {loading ? (
           <div>Loading list...</div>
-        ) : history.length === 0 ? (
+        ) : validHistory.length === 0 ? (
           <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'hsl(var(--text-muted))' }}>
             No interview history found. Click "New Mock Session" above to start your first interview!
           </div>
@@ -383,7 +384,7 @@ export default function Dashboard({ user }) {
                 </tr>
               </thead>
               <tbody>
-                {history.slice(0, 5).map((session) => (
+                {validHistory.slice(0, 5).map((session) => (
                   <tr key={session._id} style={{ borderBottom: '1px solid hsl(var(--border-light) / 0.5)', fontSize: '0.9rem' }}>
                     <td style={{ padding: '1rem', fontWeight: 600 }}>{session.role}</td>
                     <td style={{ padding: '1rem' }}>
