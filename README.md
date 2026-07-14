@@ -52,8 +52,8 @@ npm run dev
 
 ## 🌐 Deployment
 
-- **Backend**: [Railway](https://interview-prep-backend-production-9a3b.up.railway.app)
-- **Frontend**: Deploy `frontend/` folder on [Vercel](https://vercel.com) with env var `VITE_API_URL=https://interview-prep-backend-production-9a3b.up.railway.app/api`
+- **Live Platform**: [PrepAI on Vercel](https://interview-prep-ai-jlae.vercel.app)
+- **Backend API**: [Railway](https://interview-prep-backend-production-e02f.up.railway.app)
 
 ## 📡 API Endpoints
 
