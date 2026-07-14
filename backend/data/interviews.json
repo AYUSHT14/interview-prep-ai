@@ -1,1 +1,124 @@
-[]
+[
+  {
+    "_id": "1783567730237j6p9q",
+    "createdAt": "2026-07-09T03:28:50.237Z",
+    "updatedAt": "2026-07-09T03:28:55.463Z",
+    "questions": [
+      {
+        "questionText": "What is the primary purpose of using the 'use strict' directive in JavaScript?",
+        "options": [
+          "To enable the use of deprecated functions",
+          "To disable the use of strict mode in JavaScript",
+          "To throw more exceptions and improve error handling",
+          "To enforce stricter syntax and runtime checks"
+        ],
+        "correctAnswer": "To enforce stricter syntax and runtime checks",
+        "userAnswer": "To throw more exceptions and improve error handling",
+        "feedback": {
+          "betterAnswer": "The 'use strict' directive in JavaScript is used to enforce stricter syntax and runtime checks, helping developers catch common coding mistakes and improve the overall quality of their code.",
+          "score": 0,
+          "comments": "Incorrect."
+        }
+      },
+      {
+        "questionText": "What is the main difference between the 'null' and 'undefined' values in JavaScript?",
+        "options": [
+          "Null is a primitive value and undefined is an object",
+          "Null represents the absence of a value, while undefined represents an uninitialized variable",
+          "Null is used for numeric variables and undefined is used for string variables",
+          "Null is used for string variables and undefined is used for numeric variables"
+        ],
+        "correctAnswer": "Null represents the absence of a value, while undefined represents an uninitialized variable",
+        "userAnswer": "",
+        "feedback": {
+          "betterAnswer": "In JavaScript, null is a primitive value that represents the absence of a value, whereas undefined is a type that represents an uninitialized variable or a variable that has not been declared."
+        }
+      }
+    ],
+    "overallScore": 0,
+    "overallFeedback": "",
+    "userId": "17835677239083kvae",
+    "role": "Frontend Developer",
+    "type": "Technical",
+    "format": "mcq",
+    "difficulty": "medium",
+    "status": "active"
+  },
+  {
+    "_id": "1783875058209ulo5z",
+    "createdAt": "2026-07-12T16:50:58.209Z",
+    "updatedAt": "2026-07-12T16:56:12.573Z",
+    "questions": [
+      {
+        "questionText": "What is the primary purpose of the 'defer' attribute in a script tag?",
+        "options": [
+          "To specify the script language",
+          "To prevent the script from running until the page has finished loading",
+          "To enable asynchronous script loading",
+          "To link an external stylesheet"
+        ],
+        "correctAnswer": "To prevent the script from running until the page has finished loading",
+        "userAnswer": "To prevent the script from running until the page has finished loading",
+        "feedback": {
+          "betterAnswer": "The 'defer' attribute is used to specify that the script should not be executed until the page has finished loading. This can help improve page load times and prevent scripts from interfering with the rendering of the page.",
+          "score": 100,
+          "comments": "Correct!"
+        }
+      },
+      {
+        "questionText": "What is the main difference between the 'null' and 'undefined' values in JavaScript?",
+        "options": [
+          "Null is a primitive value and undefined is an object",
+          "Null represents the absence of a value and undefined represents an uninitialized variable",
+          "Null is used for numeric variables and undefined is used for string variables",
+          "Null is used for arrays and undefined is used for objects"
+        ],
+        "correctAnswer": "Null represents the absence of a value and undefined represents an uninitialized variable",
+        "userAnswer": "Null represents the absence of a value and undefined represents an uninitialized variable",
+        "feedback": {
+          "betterAnswer": "In JavaScript, null represents the intentional absence of any object value, while undefined represents an uninitialized variable or a variable that has not been declared.",
+          "score": 100,
+          "comments": "Correct!"
+        }
+      },
+      {
+        "questionText": "What is the primary function of the 'use strict' directive in JavaScript?",
+        "options": [
+          "To enable strict mode for the entire script",
+          "To disable strict mode for the entire script",
+          "To allow the use of deprecated JavaScript features",
+          "To optimize JavaScript code for better performance"
+        ],
+        "correctAnswer": "To enable strict mode for the entire script",
+        "userAnswer": "To allow the use of deprecated JavaScript features",
+        "feedback": {
+          "betterAnswer": "The 'use strict' directive is used to enable strict mode in JavaScript, which helps to catch common coding mistakes and improves the overall security and quality of the code.",
+          "score": 0,
+          "comments": "Incorrect."
+        }
+      },
+      {
+        "questionText": "What is the primary purpose of using the 'bind' method in JavaScript?",
+        "options": [
+          "To change the scope of a function to the global object",
+          "To change the scope of a function to a specified object",
+          "To invoke a function immediately with a specified scope",
+          "To create a new function with the same behavior as the original function"
+        ],
+        "correctAnswer": "To change the scope of a function to a specified object",
+        "userAnswer": "",
+        "feedback": {
+          "betterAnswer": "The 'bind' method in JavaScript is used to set the context of a function to a specified object. It returns a new function that has its 'this' keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called."
+        }
+      }
+    ],
+    "overallScore": 0,
+    "overallFeedback": "",
+    "userId": "17835677239083kvae",
+    "role": "Frontend Developer",
+    "type": "Technical",
+    "format": "mcq",
+    "difficulty": "medium",
+    "status": "active"
+  }
+]

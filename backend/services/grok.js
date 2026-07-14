@@ -6,18 +6,16 @@ const serverApiKey = process.env.GROK_API_KEY;
  * falling back to the server environment key.
  */
 const getGrokApiKey = (clientApiKey) => {
-  const activeKey = clientApiKey || serverApiKey;
-  if (activeKey && activeKey.trim() !== '') {
-    return activeKey;
-  }
-  return null;
+  const activeKey = (clientApiKey || serverApiKey || '').trim();
+  return activeKey.length > 0 ? activeKey : null;
 };
 
 /**
  * Helper to call xAI API or Groq Cloud API completions endpoint dynamically
  */
 const callGrokAPI = async (apiKey, messages, responseFormatJSON = false) => {
-  const isGroqCloud = apiKey.startsWith('gsk_');
+  const normalizedKey = apiKey.trim();
+  const isGroqCloud = normalizedKey.startsWith('gsk_');
   const endpoint = isGroqCloud 
     ? 'https://api.groq.com/openai/v1/chat/completions' 
     : 'https://api.x.ai/v1/chat/completions';
@@ -34,22 +32,35 @@ const callGrokAPI = async (apiKey, messages, responseFormatJSON = false) => {
     bodyPayload.response_format = { type: 'json_object' };
   }
 
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    },
-    body: JSON.stringify(bodyPayload)
-  });
-
-  if (!response.ok) {
-    const errText = await response.text();
+  let response;
+  try {
+    response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify(bodyPayload)
+    });
+  } catch (fetchError) {
     const providerName = isGroqCloud ? 'Groq Cloud' : 'xAI Grok';
-    throw new Error(`${providerName} API Error (Status ${response.status}): ${errText}`);
+    throw new Error(`${providerName} fetch failed: ${fetchError.message}`);
   }
 
-  const data = await response.json();
+  const responseText = await response.text();
+  if (!response.ok) {
+    const providerName = isGroqCloud ? 'Groq Cloud' : 'xAI Grok';
+    throw new Error(`${providerName} API Error (Status ${response.status}): ${responseText}`);
+  }
+
+  let data;
+  try {
+    data = JSON.parse(responseText);
+  } catch (parseError) {
+    const providerName = isGroqCloud ? 'Groq Cloud' : 'xAI Grok';
+    throw new Error(`${providerName} returned invalid JSON: ${parseError.message} | response: ${responseText}`);
+  }
+
   if (!data.choices || data.choices.length === 0) {
     throw new Error(`${isGroqCloud ? 'Groq' : 'xAI'} API returned an empty completion response.`);
   }

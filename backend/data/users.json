@@ -26,5 +26,12 @@
     "name": "Ayush",
     "email": "ayush012@gmail.com",
     "password": "$2a$10$CK9se9gy8xbSk1uKYayNqOJYvDdG3QWjtrHqu62cLvNvinnpYS38e"
+  },
+  {
+    "_id": "17835677239083kvae",
+    "createdAt": "2026-07-09T03:28:43.908Z",
+    "name": "Ayush",
+    "email": "ayush123@gmail.com",
+    "password": "$2a$10$irXAp6yttL56BXC6IwLHMOwO.WuWaZRcWhUruwJ.BqVUCCkXpTePm"
   }
 ]
